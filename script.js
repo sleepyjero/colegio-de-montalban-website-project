@@ -10,48 +10,36 @@ function mockLogin() {
         alert('Please fill out all fields.');
     }
 }
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.profiles-track');
-    const cards = document.querySelectorAll('.profile-card');
-    const prevButton = document.querySelector('.slider-button.prev');
-    const nextButton = document.querySelector('.slider-button.next');
-    
-    let currentIndex = 0;
-    
-    function getCardWidth() {
-        const card = cards[0];
-        const style = window.getComputedStyle(card);
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-        return card.offsetWidth + gap;
+document.addEventListener('DOMContentLoaded', function () {
+  const track = document.querySelector('.profiles-track');
+  const cards = document.querySelectorAll('.profile-card');
+  const prevButton = document.querySelector('.slider-button.prev');
+  const nextButton = document.querySelector('.slider-button.next');
+
+  let currentIndex = 0;
+
+  // Function to update the slider position
+  function updateSliderPosition() {
+    const cardWidth = cards[0].offsetWidth + 30; // Card width + margin
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+
+  // Event listener for the previous button
+  prevButton.addEventListener('click', function () {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
     }
-    
-    function getMaxIndex() {
-        const visibleCards = Math.floor(track.parentElement.offsetWidth / getCardWidth());
-        return Math.max(0, cards.length - visibleCards);
+  });
+
+  // Event listener for the next button
+  nextButton.addEventListener('click', function () {
+    if (currentIndex < cards.length - 3) { // Only show 3 cards at once
+      currentIndex++;
+      updateSliderPosition();
     }
-    
-    function updateSliderPosition() {
-        const cardWidth = getCardWidth();
-        const maxIndex = getMaxIndex();
-        
-        let offset = currentIndex * cardWidth;
-        
-        if (currentIndex >= maxIndex) {
-            offset = (cards.length - visibleCards) * cardWidth;
-        }
-        
-        track.style.transform = `translateX(-${offset}px)`;
-    }
-    
-    prevButton.addEventListener('click', () => {
-        currentIndex = Math.max(0, currentIndex - 1);
-        updateSliderPosition();
-    });
-    
-    nextButton.addEventListener('click', () => {
-        currentIndex = Math.min(currentIndex + 1, getMaxIndex());
-        updateSliderPosition();
-    });
-    
-    updateSliderPosition();
+  });
+
+  // Initial update to set the first position
+  updateSliderPosition();
 });

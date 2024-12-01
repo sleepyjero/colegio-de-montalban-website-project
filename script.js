@@ -18,9 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let currentIndex = 0;
 
+  // Function to calculate the card width based on screen size
+  function getCardWidth() {
+    const card = cards[0];
+    return card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight); // card width + margin
+  }
+
+  // Function to calculate how many cards to show based on the window width
+  function getCardsToShow() {
+    return window.innerWidth <= 768 ? 2 : 3;  // 2 cards on mobile, 3 cards on desktop
+  }
+
   // Function to update the slider position
   function updateSliderPosition() {
-    const cardWidth = cards[0].offsetWidth + 30; // Card width + margin
+    const cardWidth = getCardWidth();
     track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   }
 
@@ -34,12 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Event listener for the next button
   nextButton.addEventListener('click', function () {
-    if (currentIndex < cards.length - 3) { // Only show 3 cards at once
+    const totalCards = cards.length;
+    const cardsToShow = getCardsToShow();  // Get updated number of cards to show
+    if (currentIndex < totalCards - cardsToShow) {
       currentIndex++;
       updateSliderPosition();
     }
   });
 
+  // Update the number of cards shown on window resize
+  window.addEventListener('resize', function () {
+    updateSliderPosition();  // Update the slider position on window resize
+  });
+
   // Initial update to set the first position
   updateSliderPosition();
 });
+

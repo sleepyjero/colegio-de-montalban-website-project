@@ -600,21 +600,24 @@ footer p {
   padding: 20px 0;
 }
 
-.profiles-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 2rem;
-}
-
 .profile-card {
-  flex: 0 0 250px;
-  background: #005a32;
+  flex: 0 0 50%; /* Adjust width to 25% to fit 4 items per row */
   padding: 1.5rem;
+  background: #005a32;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
   color: #fff;
+  width: 55px;
+  height: 250px; /* Adjust the height as per your needs */
+  margin: 0 10px; /* Space between the cards */
+}
+
+.profiles-track {
+  display: flex;
+  gap: 1rem; /* Adjust the gap between the cards */
+  transition: transform 0.3s ease; /* Smooth transition for slider */
 }
 
 .profile-card:hover {
@@ -662,4 +665,45 @@ footer p {
 
 .slider-button.next {
   right: 0;
+}
+
+/* Container for the slider */
+.profiles-slider {
+  display: flex;
+  overflow: hidden;  /* Hide extra items */
+  width: 100%;  /* Ensures it takes up the full width of the parent */
+}
+
+/* Track for all profile cards */
+.profiles-track {
+  display: flex;
+  transition: transform 0.3s ease;  /* Smooth transition when moving the slider */
+}
+
+/* Individual profile card */
+.profile-card {
+  flex: 0 0 30%;  /* Adjust this to fit three cards */
+  padding: 10px;
+  box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+/* Slider Buttons */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
 }

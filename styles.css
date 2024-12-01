@@ -113,7 +113,6 @@ header h1 {
     background-color: green;
     color: white;
 }
-
 /* Mission and Vision Section */
 .mission-vision {
     display: flex;
@@ -224,6 +223,18 @@ footer {
         gap: 10px;
     }
 
+    .mission-vision {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .mission, .vision {
+        flex: none;
+        width: 100%;
+        padding: 15px;
+    }
+
     .about-content h2 {
         font-size: 2rem;
     }
@@ -239,8 +250,12 @@ footer {
     .seal-img {
         width: 120px;
     }
-}
 
+    footer {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+}
 /* Contact Section */
 .contact {
     background-color: #f9f9f9;
@@ -269,6 +284,7 @@ footer {
 .contact-info a:hover {
     color: #028B42;
 }
+
 /* Center the content in the 'seal' section */
 .seal {
     text-align: center;
@@ -281,6 +297,7 @@ footer {
     margin: 20px auto; /* Centers the image horizontally */
     max-width: 100%; /* Ensure the image is responsive */
 }
+
 /* Academics Section */
 .academics {
     text-align: center;
@@ -315,9 +332,6 @@ footer {
     border-radius: 8px;
     transition: transform 0.3s ease;
     height: auto; /* Height will adjust based on content */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     overflow: hidden; /* Prevent text overflow */
     text-align: center;
 }
@@ -375,9 +389,21 @@ footer {
 
 /* Mobile view */
 @media (max-width: 768px) {
+    .contact {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    .contact h2 {
+        font-size: 1.5rem; /* Smaller heading on mobile */
+    }
+
     .academics {
         flex-direction: column;
         padding: 20px;
+    }
+
+    .academics h2 {
+        font-size: 1.8rem;
     }
 
     .institute {
@@ -396,6 +422,14 @@ footer {
 
     .institute-logo {
         max-width: 150px;
+    }
+
+    .seal h3 {
+        font-size: 1.5rem;
+    }
+
+    .seal-img {
+        max-width: 100px; /* Smaller image size on mobile */
     }
 }
 /* Login Section */
@@ -482,7 +516,7 @@ footer p {
     }
 
     .login h2 {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Smaller heading on mobile */
     }
 
     form label {
@@ -497,6 +531,7 @@ footer p {
         font-size: 1rem;
     }
 }
+
 /* Campus Section */
 .campus {
     text-align: center;
@@ -575,16 +610,39 @@ footer p {
 
     .map-description h2,
     .facility-details h2 {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Smaller headings for mobile */
     }
 
     .facility-text p {
         font-size: 1rem;
     }
+
+    .facility {
+        padding: 10px; /* Reduced padding on mobile */
+    }
+
+    .facility-text h3 {
+        font-size: 1.3rem; /* Smaller heading for mobile */
+    }
+
+    .facility-text p {
+        font-size: 1rem; /* Adjust text size */
+    }
+}
 }
 .team-profiles {
   padding: 4rem 1rem;
   background-color: #f3f4f6;
+}
+
+.team-profiles p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  text-align: left;
+  color: #333;
+  padding: 0 15px;
 }
 
 .slider-container {
@@ -600,24 +658,21 @@ footer p {
   padding: 20px 0;
 }
 
+.profiles-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 2rem;
+}
+
 .profile-card {
-  flex: 0 0 50%; /* Adjust width to 25% to fit 4 items per row */
-  padding: 1.5rem;
+  flex: 0 0 250px;  /* Default size for desktop */
   background: #005a32;
+  padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
   color: #fff;
-  width: 80px;
-  height: 250px; /* Adjust the height as per your needs */
-  margin: 0 10px; /* Space between the cards */
-}
-
-.profiles-track {
-  display: flex;
-  gap: 1rem; /* Adjust the gap between the cards */
-  transition: transform 0.3s ease; /* Smooth transition for slider */
 }
 
 .profile-card:hover {
@@ -667,43 +722,58 @@ footer p {
   right: 0;
 }
 
-/* Container for the slider */
-.profiles-slider {
-  display: flex;
-  overflow: hidden;  /* Hide extra items */
-  width: 100%;  /* Ensures it takes up the full width of the parent */
+/* Responsive adjustments */
+
+/* Tablet and small mobile screens */
+@media (max-width: 768px) {
+  .slider-container {
+    padding: 0 20px;  /* Reduce padding */
+  }
+
+  .profiles-track {
+    gap: 1rem;  /* Adjust gap between profile cards */
+  }
+
+  .profile-card {
+    flex: 0 0 45%;  /* Adjust width to 2 cards per row */
+    padding: 1rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-card h3 {
+    font-size: 1rem;
+  }
+
+  .slider-button {
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+  }
 }
 
-/* Track for all profile cards */
-.profiles-track {
-  display: flex;
-  transition: transform 0.3s ease;  /* Smooth transition when moving the slider */
-}
+/* Small mobile screens (up to 480px) */
+@media (max-width: 480px) {
+  .profile-card {
+    flex: 0 0 100%;  /* 1 card per row */
+    padding: 0.8rem;
+  }
 
-/* Individual profile card */
-.profile-card {
-  flex: 0 0 30%;  /* Adjust this to fit three cards */
-  padding: 10px;
-  box-sizing: border-box; /* Prevents padding from affecting width */
-}
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
 
-/* Slider Buttons */
-.slider-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
+  .profile-card h3 {
+    font-size: 0.9rem;  /* Smaller font size */
+  }
 
-.slider-button.prev {
-  left: 10px;
-}
-
-.slider-button.next {
-  right: 10px;
+  .slider-button {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+  }
 }

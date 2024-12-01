@@ -609,7 +609,7 @@ footer p {
   text-align: center;
   transition: transform 0.3s ease;
   color: #fff;
-  width: 55px;
+  width: 80px;
   height: 250px; /* Adjust the height as per your needs */
   margin: 0 10px; /* Space between the cards */
 }

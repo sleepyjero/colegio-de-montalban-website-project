@@ -204,14 +204,18 @@ div[style*="margin"]:hover {
     font-size: 2rem;
     margin-bottom: 15px;
 }
-
+.seal h4 {
+  color:#0b4d10;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
 .seal-img {
     width: 150px;
     margin-bottom: 20px;
 }
 
 .seal p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #555;
     margin-bottom: 15px;
     line-height: 1.5;

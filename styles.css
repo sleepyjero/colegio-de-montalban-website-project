@@ -128,6 +128,7 @@ header h1 {
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .mission h2, .vision h2 {
@@ -137,6 +138,14 @@ header h1 {
 .mission p, .vision p {
     font-size: 1rem;
 }
+
+/* Hover Effect */
+.mission:hover, .vision:hover {
+    background-color: #f0f0f0; /* Slight background change */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    transform: translateY(-5px); /* Slight upward movement */
+}
+
 
 /* About Section */
 .about-content {
@@ -171,6 +180,15 @@ header h1 {
     list-style: disc;
     margin-bottom: 10px;
     color: #333;
+}
+/* Hover effect for divs with margin */
+div[style*="margin"] {
+    transition: background-color 0.3s ease, transform 0.3s ease; /* smooth transition */
+}
+
+div[style*="margin"]:hover {
+    background-color: #f0f0f0; /* Change to your preferred hover color */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Seal Section */
@@ -574,9 +592,16 @@ footer p {
     width: 100%; /* Match the width of the campus map */
     max-width: 800px; /* Limit the size */
     margin: 0 auto 30px; /* Center align with space below */
-    border: 1px solid #344c3d;
+    border: 0px solid #344c3d;
     background-color: #f9f9f9;
     padding: 15px; /* Smaller padding to reduce size */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add 3D shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for 3D effect */
+}
+
+.facility:hover {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* More pronounced shadow on hover */
 }
 
 .facility-image {
@@ -629,7 +654,7 @@ footer p {
         font-size: 1rem; /* Adjust text size */
     }
 }
-}
+
 .team-profiles {
   padding: 4rem 1rem;
   background-color: #f3f4f6;
